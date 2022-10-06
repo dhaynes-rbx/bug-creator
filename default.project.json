@@ -3,22 +3,43 @@
   "tree": {
     "$className": "DataModel",
 
-    "ReplicatedStorage": {
-      "Common": {
-        "$path": "src/shared"
+    "ReplicatedFirst": {
+      "$className": "ReplicatedFirst",
+      "Scripts": {
+          "$className": "Folder",
+          "$path": "src/Startup/Scripts"
       }
+    },
+    "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+        "Scripts": {
+            "$className": "Folder",
+            "$path": "src/Replicated/Scripts"
+        },
+        "Assets": {
+            "$className": "Folder",
+            "$path": "src/Replicated/Assets"
+        },
+        "Packages": {
+            "$path": "Packages"
+        }
     },
 
     "ServerScriptService": {
       "Server": {
-        "$path": "src/server"
+        "$path": "src/Server"
       }
     },
 
     "StarterPlayer": {
+      "$properties": {
+        "CameraMaxZoomDistance": 20,
+        "CameraMinZoomDistance": 5,
+        "CharacterWalkSpeed": 0
+      },
       "StarterPlayerScripts": {
         "Client": {
-          "$path": "src/client"
+          "$path": "src/Client"
         }
       }
     },
@@ -26,41 +47,78 @@
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
-      },
-      "Baseplate": {
-        "$className": "Part",
-        "$properties": {
-          "Anchored": true,
-          "Color": [
-            0.38823,
-            0.37254,
-            0.38823
-          ],
-          "Locked": true,
-          "Position": [
-            0,
-            -10,
-            0
-          ],
-          "Size": [
-            512,
-            20,
-            512
-          ]
-        }
       }
     },
+  
     "Lighting": {
+      "$className": "Lighting",
       "$properties": {
-        "Ambient": [
-          0,
-          0,
-          0
-        ],
-        "Brightness": 3,
-        "GlobalShadows": true,
-        "Outlines": false,
-        "Technology": "ShadowMap"
+          "GlobalShadows": true,
+          "Outlines": false,
+          "Ambient": [
+              0.27450980392,
+              0.27450980392,
+              0.27450980392
+          ],
+          "Brightness": 5,
+          "ColorShift_Bottom": [
+              0,
+              0,
+              0
+          ],
+          "ColorShift_Top": [
+              0,
+              0,
+              0
+          ],
+          "EnvironmentDiffuseScale": 1,
+          "EnvironmentSpecularScale": 1,
+          "OutdoorAmbient": [
+              0.27450980392,
+              0.27450980392,
+              0.27450980392
+          ],
+          "ShadowSoftness": 1,
+          "Technology": "ShadowMap",
+          "ClockTime": 12.2,
+          "GeographicLatitude": 9,
+          "ExposureCompensation": 0
+      },
+      "Atmosphere": {
+          "$className": "Atmosphere",
+          "$properties": {
+              "Density": 0.3,
+              "Offset": 0.25,
+              "Color": [
+                  0.2196,
+                  0.2196,
+                  0.2196
+              ],
+              "Decay": [
+                  0.5843,
+                  0.5608,
+                  0.5098
+              ],
+              "Glare": 0,
+              "Haze": 0
+          }
+      },
+      "Sky": {
+          "$className": "Sky",
+          "$properties": {
+              "SkyboxBk": "rbxassetid://6444884337",
+              "SkyboxDn": "rbxassetid://6444884785",
+              "SkyboxFt": "rbxassetid://6444884337",
+              "SkyboxLf": "rbxassetid://6444884337",
+              "SkyboxRt": "rbxassetid://6444884337",
+              "SkyboxUp": "rbxassetid://6412503613"
+          }
+      },
+      "Bloom": {
+          "$className": "BloomEffect",
+          "$properties": {
+              "Intensity": 1
+          }
       }
     },
     "SoundService": {

@@ -1,0 +1,12 @@
+<roblox version="4">
+  <Item class="StringValue" referent="0">
+    <Properties>
+      <string name="Name">Default</string>
+      <BinaryString name="AttributesSerialize">
+      </BinaryString>
+      <int64 name="SourceAssetId">-1</int64>
+      <BinaryString name="Tags"></BinaryString>
+      <string name="Value">{"DiagonalFieldOfView":31.62900161743164,"Components":[-48.97771453857422,49.23578643798828,47.91069793701172,0.7086074948310852,0.3850787281990051,-0.5912612676620483,-1.4901159417490817e-8,0.8379518985748291,0.5457442402839661,0.7056029438972473,-0.3867184519767761,0.5937789678573608],"FieldOfView":34.99985885620117}</string>
+    </Properties>
+  </Item>
+</roblox>

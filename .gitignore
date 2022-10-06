@@ -1,6 +1,9 @@
+.DS_Store
+
 # Project place file
 /bug-creator.rbxlx
 
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
+Packages/

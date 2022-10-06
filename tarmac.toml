@@ -1,0 +1,7 @@
+name = "bug-creator"
+
+[[inputs]]
+glob = "remote-assets/**/*.png"
+codegen = true
+codegen-path = "src/Replicated/Assets/Manifest.lua"
+codegen-base-path = "remote-assets"

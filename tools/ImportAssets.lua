@@ -14,18 +14,18 @@
         3. In the same terminal run: `remodel run tools/ImportAssets.lua`
 ]]
 
-local SCENE_SOURCE_PATH = "src/Places/Scenes"
-local SCENE_SOURCE_CONTAINER = "Scene"
-local SCENE_DESTINATION_PATH = "remote-assets/Models/Scenes"
+-- local SCENE_SOURCE_PATH = "src/Places/Scenes"
+-- local SCENE_SOURCE_CONTAINER = "Scene"
+-- local SCENE_DESTINATION_PATH = "remote-assets/Models/Scenes"
 local ASSETS_SOURCE_PATH = "src/Places/Assets"
 local ASSETS_SOURCE_CONTAINER = "Assets"
-local ASSETS_DESTINATION_PATH = "remote-assets/Models/Assets"
+local ASSETS_DESTINATION_PATH = "src/Replicated/Assets"
 local PLACE_EXTENSION = ".rbxlx"
 local PLACE_EXTENSION_LENGTH = string.len(PLACE_EXTENSION)
 
 local DEBUG_LOCAL_ANIMATIONS = false
 
-assert(remodel.isDir(SCENE_SOURCE_PATH), "Missing scene source folder `" .. SCENE_SOURCE_PATH .. "`")
+-- assert(remodel.isDir(SCENE_SOURCE_PATH), "Missing scene source folder `" .. SCENE_SOURCE_PATH .. "`")
 assert(remodel.isDir(ASSETS_SOURCE_PATH), "Missing asset source folder `" .. ASSETS_SOURCE_PATH .. "`")
 
 -- Cleanup scenes(DO IT FROM SHELL)
@@ -69,23 +69,23 @@ local function importChildAssets(root, destination, _)
     end
 end
 
-local function importScene(scene, destination, placeName)
-    -- Remove all animations
-    for _, descendant in ipairs(scene:GetDescendants()) do
-        if descendant.Name == "AnimSaves" then
-            descendant.Parent = nil
-        end
-    end
-    local success, result = pcall(function()
-        return remodel.isDir(destination)
-    end)
-    if success == false or result == false then
-        remodel.createDirAll(destination)
-    end
-    destination = destination .. "/" .. placeName .. ".rbxmx"
-    print("Writing " .. destination)
-    remodel.writeModelFile(scene, destination)
-end
+-- local function importScene(scene, destination, placeName)
+--     -- Remove all animations
+--     for _, descendant in ipairs(scene:GetDescendants()) do
+--         if descendant.Name == "AnimSaves" then
+--             descendant.Parent = nil
+--         end
+--     end
+--     local success, result = pcall(function()
+--         return remodel.isDir(destination)
+--     end)
+--     if success == false or result == false then
+--         remodel.createDirAll(destination)
+--     end
+--     destination = destination .. "/" .. placeName .. ".rbxmx"
+--     print("Writing " .. destination)
+--     remodel.writeModelFile(scene, destination)
+-- end
 
 local function importAll(sourcePath, sourceContainer, destinationPath, importFunction)
     for _, placeFilename in ipairs(remodel.readDir(sourcePath)) do

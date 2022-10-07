@@ -2,7 +2,7 @@ print("Hello world, from client!")
 local Players = game:GetService("Players")
 local Packages = game:GetService("ReplicatedStorage").Packages
 local Roact = require(Packages.Roact)
-local scene = game.Workspace:WaitForChild("Scene")
+
 
 -- local HelloWorldComponent = require(script.HelloWorldComponent)
 

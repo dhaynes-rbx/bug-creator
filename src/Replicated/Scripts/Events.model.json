@@ -1,0 +1,9 @@
+{
+    "ClassName": "Folder",
+    "Children": [
+        {
+            "Name": "StartGame",
+            "ClassName": "RemoteEvent"
+        }
+    ]
+}

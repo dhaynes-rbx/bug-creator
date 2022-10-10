@@ -49,6 +49,10 @@
             "$className": "Folder",
             "$path": "src/Replicated/Assets"
         },
+        "Eventssss": {
+          "$className": "Folder",
+          "$path": "src/Replicated/Eventssss"
+        },
         "Packages": {
             "$path": "Packages"
         }

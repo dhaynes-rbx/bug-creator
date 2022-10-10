@@ -1,12 +1,14 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local React = require(ReplicatedStorage.Packages.React)
+local Roact = require(ReplicatedStorage.Packages.Roact)
 local ReactRoblox = require(ReplicatedStorage.Packages.ReactRoblox)
 local Components = ReplicatedStorage.Scripts.Components
 local Cubicle = require(Components.Cubicle)
 
-local rootFolder = Instance.new("Folder", game.Workspace)
+local rootFolder = Instance.new("Folder")
 rootFolder.Name = "World"
+rootFolder.Parent = game.Workspace
 
 local root = ReactRoblox.createRoot(rootFolder)
 
@@ -14,7 +16,7 @@ local cubicles = {}
 local function createCubicle(player:Player, playerIndex)
     if cubicles[player] then return end
     local cframe = CFrame.new((playerIndex - 1) * 10, 0, 0)
-    cubicles[player] = Cubicle:new(player, cframe)
+    cubicles[player] = Cubicle.new(player, cframe):init()
 end
 
 local playerIndex = 0
@@ -35,3 +37,4 @@ end)
 for _, player in pairs(Players:GetPlayers()) do
     onPlayerAdded(player)
 end
+

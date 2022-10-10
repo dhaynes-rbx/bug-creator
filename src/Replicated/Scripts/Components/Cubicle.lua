@@ -15,18 +15,23 @@ local Cubicle = Dash.class("Cubicle", function(owner: Player, cframe:CFrame)
       model = nil :: Model,
       timer = 0 :: number,
       rate = 1 :: number,
-      isSeated = false :: boolean
+      isSeated = false :: boolean,
+      highlight = nil :: Highlight,
     }
   end)
 
 function Cubicle:onLaptopMouseEnter()
-  print("Mouse Enter")
+  if self.highlight then
+    self.model.Laptop.Highlight.Enabled = true
+  end
 end
 function Cubicle:onLaptopMouseLeave()
-  print("Mouse Leave")
+  if self.highlight then
+    self.model.Laptop.Highlight.Enabled = false
+  end
 end
 function Cubicle:onLaptopMouseClick()
-  print("Mouse Click")
+  self.emitter:Emit(1)
 end
 
 function Cubicle:init()
@@ -34,12 +39,25 @@ function Cubicle:init()
   self.model:PivotTo(self.cframe)
   self.model.Parent = game.Workspace
 
+  local laptop:Model = self.model.Laptop
+  self.highlight = Instance.new("Highlight")
+  self.highlight.Enabled = false
+  self.highlight.FillTransparency = 1
+  self.highlight.OutlineColor = Color3.fromRGB(24, 193, 255)
+  self.highlight.Parent = laptop
+  
   local laptopCD = Instance.new("ClickDetector")
-  laptopCD.Parent = self.model.Laptop
+  laptopCD.MouseHoverEnter:Connect(function() 
+    self:onLaptopMouseEnter() 
+  end)
+  laptopCD.MouseHoverLeave:Connect(function() 
+    self:onLaptopMouseLeave() 
+  end)
+  laptopCD.MouseClick:Connect(function() 
+    self:onLaptopMouseClick() 
+  end)
+  laptopCD.Parent = laptop
 
-  laptopCD.MouseHoverEnter:Connect(self.onLaptopMouseEnter)
-  laptopCD.MouseHoverLeave:Connect(self.onLaptopMouseLeave)
-  laptopCD.MouseClick:Connect(self.onLaptopMouseClick)
 
   local humanoid = self.owner.Character.Humanoid
   humanoid.Seated:Connect(function(bool, seat)
@@ -76,7 +94,6 @@ function Cubicle:runEmitter(delta)
     
     if self.emitter then
       self.emitter:Emit(1)
-      print("Tick")
     end
   end
 end

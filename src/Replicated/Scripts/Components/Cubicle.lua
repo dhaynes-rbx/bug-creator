@@ -68,7 +68,6 @@ function Cubicle:init()
       self:pauseEmitter()
     end
   end)
-
   -- wait a bit to make sure the humanoid can sit properly.
   task.delay(3, function() 
     self.model.Chair.Seat:Sit(humanoid)
@@ -76,6 +75,9 @@ function Cubicle:init()
   
   self.emitter = self.model.Laptop.Emitter.ParticleEmitter
   self.emitter.Enabled = false
+
+  local label = self.model.NamePlate.Plate.SurfaceGui.TextLabel
+  label.Text = self.owner.Character.Name
 end
 
 function Cubicle:startEmitter()
@@ -186,5 +188,4 @@ return Cubicle
 
     -- local uiRoot = ReactRoblox.createRoot(model.UI.UIRoot):render(uiChildren)
 
-    -- local emitter = 
 

@@ -46,6 +46,7 @@ function Cubicle:init()
   self.highlight.OutlineColor = Color3.fromRGB(24, 193, 255)
   self.highlight.Parent = laptop
   
+  --TODO: Make click detector local only
   local laptopCD = Instance.new("ClickDetector")
   laptopCD.MouseHoverEnter:Connect(function() 
     self:onLaptopMouseEnter() 

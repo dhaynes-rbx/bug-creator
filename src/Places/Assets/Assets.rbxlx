@@ -82,27 +82,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-0.229897052</X>
-					<Y>11.3093777</Y>
-					<Z>11.8040266</Z>
-					<R00>0.999997735</R00>
-					<R01>0.000896745129</R01>
-					<R02>-0.00194646325</R02>
+					<X>3.72096872</X>
+					<Y>6.36929655</Y>
+					<Z>0.706475675</Z>
+					<R00>-0.346558005</R00>
+					<R01>-0.436556011</R01>
+					<R02>0.830250859</R02>
 					<R10>-0</R10>
-					<R11>0.908247232</R11>
-					<R12>0.418433934</R12>
-					<R20>0.00214309851</R20>
-					<R21>-0.418432981</R21>
-					<R22>0.908245146</R22>
+					<R11>0.885101974</R11>
+					<R12>0.465397358</R12>
+					<R20>-0.938028574</R20>
+					<R21>0.161287174</R21>
+					<R22>-0.306739122</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-0.226004124</X>
-					<Y>10.4725094</Y>
-					<Z>9.98753548</Z>
+					<X>2.060467</X>
+					<Y>5.43850183</Y>
+					<Z>1.31995392</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -2339,7 +2339,7 @@ zNLfaoZA///+//PAj5CH]]></BinaryString>
 								<token name="BottomSurfaceInput">0</token>
 								<CoordinateFrame name="CFrame">
 									<X>0.125000238</X>
-									<Y>4.92500305</Y>
+									<Y>5.17500305</Y>
 									<Z>0.872575045</Z>
 									<R00>1</R00>
 									<R01>0</R01>
@@ -2405,7 +2405,7 @@ zNLfaoZA///+//PAj5CH]]></BinaryString>
 								<float name="TopParamB">0.5</float>
 								<token name="TopSurface">0</token>
 								<token name="TopSurfaceInput">0</token>
-								<float name="Transparency">0</float>
+								<float name="Transparency">1</float>
 								<UniqueId name="UniqueId">53700d1fd125609f034fb1e800030283</UniqueId>
 								<Vector3 name="Velocity">
 									<X>0</X>
@@ -2416,7 +2416,7 @@ zNLfaoZA///+//PAj5CH]]></BinaryString>
 								<token name="shape">1</token>
 								<Vector3 name="size">
 									<X>1.60000002</X>
-									<Y>0.600000024</Y>
+									<Y>0.100000024</Y>
 									<Z>1</Z>
 								</Vector3>
 							</Properties>

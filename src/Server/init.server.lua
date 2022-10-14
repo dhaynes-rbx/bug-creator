@@ -1,16 +1,12 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local React = require(ReplicatedStorage.Packages.React)
-local Roact = require(ReplicatedStorage.Packages.Roact)
-local ReactRoblox = require(ReplicatedStorage.Packages.ReactRoblox)
+-- local React = require(ReplicatedStorage.Packages.React)
+-- local Roact = require(ReplicatedStorage.Packages.Roact)
+-- local ReactRoblox = require(ReplicatedStorage.Packages.ReactRoblox)
 local Components = ReplicatedStorage.Scripts.Components
 local Cubicle = require(Components.Cubicle)
 
-local rootFolder = Instance.new("Folder")
-rootFolder.Name = "World"
-rootFolder.Parent = game.Workspace
 
-local root = ReactRoblox.createRoot(rootFolder)
 
 local cubicles = {}
 local function createCubicle(player:Player, playerIndex)

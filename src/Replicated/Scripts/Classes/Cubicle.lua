@@ -2,9 +2,6 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local React = require(game.ReplicatedStorage.Packages.React)
-local Roact = require(game.ReplicatedStorage.Packages.Roact)
-local ReactRoblox = require(game.ReplicatedStorage.Packages.ReactRoblox)
 local Dash = require(ReplicatedStorage.Packages.Dash)
 
 local Cubicle = Dash.class("Cubicle", function(owner: Player, cframe:CFrame)
@@ -81,7 +78,6 @@ function Cubicle:init()
 end
 
 function Cubicle:startEmitter()
-  print("Starting emitter")
   if self.connection then return end
   
   self.timer = 0
@@ -105,7 +101,6 @@ function Cubicle:pauseEmitter()
   if self.connection then
     self.connection:Disconnect()
     self.connection = nil
-    print("Pausing emitter")
   end
 end
 
@@ -121,71 +116,3 @@ function Cubicle:shutdown()
 end
 
 return Cubicle
-    
-    --Tell the player that their cubicle is ready.
-
-    -- local uiChildren = React.createElement("SurfaceGui", {
-    --   ClipsDescendants = true,
-    --   LightInfluence = 1,
-    --   SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud,
-    --   Face = Enum.NormalId.Top,
-    --   ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
-    -- }, {
-    --   frame = React.createElement("Frame", {
-    --     BackgroundColor3 = Color3.fromRGB(0, 0, 0),
-    --     BackgroundTransparency = 0.8,
-    --     Size = UDim2.fromScale(1, 1),
-    --   }),
-    
-    --   textFrame = React.createElement("Frame", {
-    --     AnchorPoint = Vector2.new(0.5, 0.5),
-    --     BackgroundColor3 = Color3.fromRGB(156, 184, 255),
-    --     BorderSizePixel = 0,
-    --     Position = UDim2.fromScale(0.5, 0.5),
-    --     Size = UDim2.new(1, -10, 1, -10),
-    --   }, {
-    --     bugs = React.createElement("TextLabel", {
-    --       FontFace = Font.new(
-    --         "rbxasset://fonts/families/FredokaOne.json",
-    --         Enum.FontWeight.Bold,
-    --         Enum.FontStyle.Normal
-    --       ),
-    --       Text = "Bugs: 999,999,999",
-    --       TextColor3 = Color3.fromRGB(0, 0, 0),
-    --       TextSize = 25,
-    --       AnchorPoint = Vector2.new(0.5, 0),
-    --       BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-    --       BackgroundTransparency = 1,
-    --       BorderSizePixel = 0,
-    --       LayoutOrder = 1,
-    --       Position = UDim2.fromScale(0.5, 0),
-    --       Size = UDim2.new(1, 0, 0, 30),
-    --     }),
-    
-    --     level = React.createElement("TextLabel", {
-    --       FontFace = Font.new(
-    --         "rbxasset://fonts/families/FredokaOne.json",
-    --         Enum.FontWeight.Bold,
-    --         Enum.FontStyle.Normal
-    --       ),
-    --       Text = "Level: 17",
-    --       TextColor3 = Color3.fromRGB(0, 0, 0),
-    --       TextSize = 25,
-    --       AnchorPoint = Vector2.new(0.5, 0),
-    --       BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-    --       BackgroundTransparency = 1,
-    --       BorderSizePixel = 0,
-    --       Position = UDim2.fromScale(0.5, 0),
-    --       Size = UDim2.new(1, 0, 0, 30),
-    --     }),
-    
-    --     uIListLayout = React.createElement("UIListLayout", {
-    --       SortOrder = Enum.SortOrder.LayoutOrder,
-    --       VerticalAlignment = Enum.VerticalAlignment.Center,
-    --     }),
-    --   }),
-    -- })
-
-    -- local uiRoot = ReactRoblox.createRoot(model.UI.UIRoot):render(uiChildren)
-
-

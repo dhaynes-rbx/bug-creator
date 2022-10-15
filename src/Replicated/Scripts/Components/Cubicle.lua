@@ -2,9 +2,6 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local React = require(game.ReplicatedStorage.Packages.React)
-local Roact = require(game.ReplicatedStorage.Packages.Roact)
-local ReactRoblox = require(game.ReplicatedStorage.Packages.ReactRoblox)
 local Dash = require(ReplicatedStorage.Packages.Dash)
 
 local Cubicle = Dash.class("Cubicle", function(owner: Player, cframe:CFrame)

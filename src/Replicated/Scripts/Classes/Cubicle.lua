@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Dash = require(ReplicatedStorage.Packages.Dash)
 
+
 local Cubicle = Dash.class("Cubicle", function(owner: Player, cframe:CFrame)
     return {
       owner = owner :: Player,
@@ -15,7 +16,11 @@ local Cubicle = Dash.class("Cubicle", function(owner: Player, cframe:CFrame)
       isSeated = false :: boolean,
       highlight = nil :: Highlight,
     }
-  end)
+end)
+
+function Cubicle:getOwner()
+  return self.owner
+end
 
 function Cubicle:onLaptopMouseEnter()
   if self.highlight then
@@ -56,7 +61,7 @@ function Cubicle:init()
   end)
   laptopCD.Parent = laptop
 
-
+--TODO: Make it so that the Seat is the one listening for the player to sit.
   local humanoid = self.owner.Character.Humanoid
   humanoid.Seated:Connect(function(bool, seat)
     if bool then

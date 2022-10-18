@@ -46,12 +46,8 @@
             "$path": "src/Replicated/Scripts"
         },
         "Assets": {
-            "$className": "Folder",
-            "$path": "src/Replicated/Assets"
-        },
-        "Eventssss": {
           "$className": "Folder",
-          "$path": "src/Replicated/Eventssss"
+          "$path": "src/Replicated/Assets"
         },
         "Packages": {
             "$path": "Packages"
@@ -59,16 +55,19 @@
     },
 
     "ServerScriptService": {
+      "$className": "ServerScriptService",
       "Server": {
         "$path": "src/Server"
       }
     },
     "StarterPlayer": {
+      "$className": "StarterPlayer",
       "$properties": {
         "CameraMaxZoomDistance": 20,
         "CameraMinZoomDistance": 5
       },
       "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
         "Client": {
           "$path": "src/Client"
         }
@@ -103,7 +102,7 @@
               0.27450980392
           ],
           "ShadowSoftness": 1,
-          "Technology": "Future",
+          "Technology": "ShadowMap",
           "ClockTime": 12.2,
           "GeographicLatitude": 9,
           "ExposureCompensation": 0
@@ -146,6 +145,7 @@
       }
     },
     "SoundService": {
+      "$className": "SoundService",
       "$properties": {
         "RespectFilteringEnabled": true
       }

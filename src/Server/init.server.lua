@@ -4,43 +4,23 @@ local Packages = ReplicatedStorage.Packages
 local CollectionService = game:GetService("CollectionService")
 local RunService = game:GetService("RunService")
 
-local OnCubicleAdded:RemoteEvent = ReplicatedStorage.Scripts.Events.OnCubicleAdded
-
---Create the environment
-local environment = ReplicatedStorage.Assets.Environment.Office:Clone()
-environment.Parent = game.Workspace
-local cubicleSlots = environment.CubicleSlots
-
-local cubicles = {}
-local playerIndex = 0
 local function onPlayerAdded(player:Player)
     player.CharacterAdded:Connect(function(character)
-        if cubicles[player] then
-            return
-        end
-        if playerIndex >= #cubicleSlots:GetChildren() then
-            return
-        end
-        
-        playerIndex = playerIndex + 1
-        
-        local cframe = cubicleSlots[tostring(playerIndex)]:GetPivot()
-        local cubicleModel = ReplicatedStorage.Assets.Cubicles.Cubicle:Clone()
-        cubicleModel:PivotTo(cframe)
-        cubicleModel.Parent = game.Workspace
-        
-        CollectionService:AddTag(cubicleModel, "Cubicle")
-        cubicles[player] = cubicleModel
+        print("Player Character added: "..player.Name)
+        local humanoid = character:WaitForChild("Humanoid")
 
-        OnCubicleAdded:FireClient(player, cubicleModel)
+        --Swap out the sitting animation to show a keyboard-typing animation
+        for _, playingTracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            playingTracks:Stop(0)
+        end
+
+        local animateScript = character:WaitForChild("Animate")
+        animateScript.sit.SitAnim.AnimationId = "rbxassetid://11188590043"
     end)
 end
 
 local function onPlayerRemoving(player:Player)
-    if cubicles[player] then
-        cubicles[player]:Destroy()
-        cubicles[player] = nil
-    end
+    print("Player removed: "..player.Name)
 end
 
 Players.PlayerAdded:Connect(onPlayerAdded)
@@ -50,11 +30,3 @@ Players.PlayerRemoving:Connect(onPlayerRemoving)
 for _, player in pairs(Players:GetPlayers()) do
     onPlayerAdded(player)
 end
-
-local bugLeaderboard = environment.Scoreboard.SurfaceGui.Frame.TextLabel
-local totalBugs = 0
-local OnBugCountUpdated:RemoteEvent = ReplicatedStorage.Scripts.Events.OnBugCountUpdated
-OnBugCountUpdated.OnServerEvent:Connect(function(client, bugCount)
-    totalBugs += bugCount
-    bugLeaderboard.Text = "Bugs created: "..tostring(totalBugs)
-end)

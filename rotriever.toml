@@ -7,16 +7,13 @@ version = "1.0.0"
 files = ["*", "!**.story.lua"]
 
 [dependencies]
-AssessmentCore = "github.com/imbellus2/assessment-core@7.0.18"
-AssessmentUI = "github.com/imbellus2/assessment-ui@3.0.0"
-FishBlox = "github.com/imbellus2/fishblox@6.0.32"
+
 Dash = "github.com/roblox/dash@0.1.7"
 Roact = { target = "github.com/roblox/roact-alignment", version = "17.0.1-rc.16", package = "RoactCompat" }
 React = "github.com/roblox/roact-alignment@17.0.1-rc.16"
 ReactRoblox = "github.com/roblox/roact-alignment@17.0.1-rc.16"
 Rodux = "github.com/Roblox/rodux@3.0.0"
 RoactRodux = "github.com/Roblox/roact-rodux@0.5.0"
-Utilities = "github.com/imbellus2/assessment-utils@3.0.5"
 
 [dev_dependencies]
 TestEZ = "github.com/roblox/testez@0.4.1"
